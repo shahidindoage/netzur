@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom'; // <-- Import Routes and Route
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { StatsBanner } from './components/StatsBanner';
-import { FeatureDeepDives } from './components/FeatureDeepDives';
-import { IspSolutionsGrid } from './components/IspSolutionsGrid';
-import { RoiCalculator } from './components/RoiCalculator';
-import { WhyNetzur } from './components/WhyNetzur';
-import { CustomerSpotlight } from './components/CustomerSpotlight';
-import { ResourcesSection } from './components/ResourcesSection';
-import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { BookDemoModal } from './components/BookDemoModal';
+
+// Import your pages
+import Home from './pages/Home';
+import Home2 from './pages/Home2';
 
 export default function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -25,43 +21,26 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F9FB] text-[#353F4F] font-sans antialiased">
-      {/* Top Header Navigation */}
+      {/* Top Header Navigation (Persists across all pages) */}
       <Navbar onOpenDemo={handleOpenDemo} />
 
-      {/* Main Content Area */}
+      {/* Main Content Area (Routes will render here) */}
       <main className="flex-1">
-        {/* 1. Hero Experience with Interactive ISP SaaS Dashboard */}
-        <Hero onOpenDemo={handleOpenDemo} />
-
-        {/* 2. Why ISPs Choose Netzur (Clean, professional cards directly below hero) */}
-        <WhyNetzur onOpenDemo={handleOpenDemo} />
-
-        {/* 3. Enterprise Stats & Trusted Operators Banner */}
-        {/* <StatsBanner /> */}
-
-        {/* 4. Core Feature Deep Dives (Integrations, Smarter ISP Management, Who We Are) */}
-        <FeatureDeepDives onOpenDemo={handleOpenDemo} />
-
-        {/* 5. Solutions in Action (Challenge / Solution / Outcome architecture cards) */}
-        <IspSolutionsGrid onOpenDemo={handleOpenDemo} />
-
-        {/* 6. Interactive ROI & Unbilled Revenue Leakage Calculator */}
-        {/* <RoiCalculator onOpenDemo={handleOpenDemo} /> */}
-
-        {/* 7. Customer Success Spotlight (High contrast quote & metrics) */}
-        <CustomerSpotlight onOpenDemo={handleOpenDemo} />
-
-        {/* 8. Telecom Engineering & BSS Insights Resources */}
-        {/* <ResourcesSection onOpenDemo={handleOpenDemo} /> */}
-
-        {/* 9. Conversion Banner */}
-        {/* <CtaBanner onOpenDemo={handleOpenDemo} /> */}
+        <Routes>
+          {/* Home Route */}
+          <Route path="/" element={<Home onOpenDemo={handleOpenDemo} />} />
+          <Route path="/home2" element={<Home2 onOpenDemo={handleOpenDemo} />} />
+          
+          {/* Example of how to add more routes later: */}
+          {/* <Route path="/about" element={<About onOpenDemo={handleOpenDemo} />} /> */}
+          {/* <Route path="/features" element={<Features onOpenDemo={handleOpenDemo} />} /> */}
+        </Routes>
       </main>
 
-      {/* Enterprise Footer with Certifications and Regional Offices */}
+      {/* Enterprise Footer (Persists across all pages) */}
       <Footer />
 
-      {/* Interactive Demo / Sandbox Booking Modal */}
+      {/* Interactive Demo / Sandbox Booking Modal (Persists across all pages) */}
       <BookDemoModal 
         isOpen={isDemoModalOpen} 
         onClose={handleCloseDemo} 
