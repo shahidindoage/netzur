@@ -54,11 +54,10 @@ export const Hero2: React.FC<Hero2Props> = ({ onOpenDemo }) => {
   return (
     <section 
       id="hero-section-2"
-      className="relative overflow-hidden bg-white text-slate-900 min-h-[calc(100vh-4.5rem)] flex flex-col"
+      className="relative overflow-hidden bg-white text-slate-900 min-h-[calc(100vh-4.5rem)] flex flex-col justify-between"
     >
-      {/* Background Grid & Soft Glows (Light Theme) */}
-      <div className="absolute inset-0 z-0">
-        {/* Grid Pattern */}
+      {/* Background Grid & Soft Glows */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div 
           className="absolute inset-0 opacity-[0.04]" 
           style={{ 
@@ -66,26 +65,15 @@ export const Hero2: React.FC<Hero2Props> = ({ onOpenDemo }) => {
             backgroundSize: '40px 40px' 
           }}
         />
-        {/* Soft Gradient Glows */}
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-200/40 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-200/30 rounded-full blur-[120px]" />
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-10 gap-12 lg:gap-20">
+      <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-14 gap-8 lg:gap-6">
         
         {/* Left Column: Copy & CTA */}
-        <div className="flex-1 max-w-2xl">
-          {/* Badge */}
-          {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-orange-50 border border-orange-100">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F13B0A] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F13B0A]"></span>
-            </span>
-            <span className="text-xs font-medium text-orange-900 tracking-wide">Next-Gen ISP Management Suite</span>
-          </div> */}
-
-          {/* Headline */}
+        <div className="w-full lg:w-5/12 flex-shrink-0 max-w-2xl">
           <h1 
             className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6 text-slate-900"
             aria-label="Next-Gen Billing, Broadband Operations Made Easy!"
@@ -114,12 +102,10 @@ export const Hero2: React.FC<Hero2Props> = ({ onOpenDemo }) => {
             </span>
           </h1>
 
-          {/* Subheadline */}
           <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mb-8 font-normal">
             Streamline your ISP subscriber lifecycle, recurring invoicing, and sub-millisecond RADIUS provisioning. Purpose-built for modern broadband operators.
           </p>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
             <button
               onClick={onOpenDemo}
@@ -134,7 +120,6 @@ export const Hero2: React.FC<Hero2Props> = ({ onOpenDemo }) => {
             </button>
           </div>
 
-          {/* Trust Indicators */}
           <div className="flex items-center gap-6 text-slate-500 text-sm">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-slate-400" />
@@ -148,32 +133,13 @@ export const Hero2: React.FC<Hero2Props> = ({ onOpenDemo }) => {
           </div>
         </div>
 
-        {/* Right Column: Image */}
-        <div className="flex-1 w-full max-w-xl relative hidden md:block z-10">
-          <div className="relative overflow-hidden p-2">
-            <img 
-              src="https://alepo.com/wp-content/uploads/2025/10/Home-hero-fixed-final.png" 
-              alt="Netzur ISP Operations Dashboard" 
-              className="rounded-xl w-full h-auto object-cover"
-            />
-          </div>
-          
-          {/* Floating Badge */}
-          {/* <div className="absolute -bottom-5 -left-5 px-5 py-3 rounded-xl bg-slate-900 text-white text-sm font-bold shadow-xl flex items-center gap-2 border border-slate-800">
-            <ShieldCheck className="w-4 h-4 text-[#F13B0A]" />
-            Zero Revenue Leakage
-          </div> */}
-
-          {/* Floating Stats Card (Optional for extra flair) */}
-          {/* <div className="absolute -top-4 -right-4 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xl flex items-center gap-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100">
-              <Activity className="w-4 h-4 text-green-600" />
-            </div>
-            <div>
-              <div className="text-xs text-slate-500 font-medium">RADIUS Latency</div>
-              <div className="text-sm font-bold text-slate-900">2.1ms</div>
-            </div>
-          </div> */}
+        {/* Right Column: Moderately Sized Natural Image */}
+        <div className="w-full lg:w-7/12 relative hidden md:flex justify-center items-center z-10">
+          <img 
+            src="/Home-hero-fixed-final2.png" 
+            alt="Netzur ISP Operations Dashboard" 
+            className="w-full h-auto max-w-none lg:scale-110 origin-center object-contain mix-blend-multiply"
+          />
         </div>
 
       </div>
@@ -183,7 +149,6 @@ export const Hero2: React.FC<Hero2Props> = ({ onOpenDemo }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs text-slate-500 mb-4 uppercase tracking-widest">Trusted by leading operators</p>
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-12 opacity-60 hover:opacity-100 transition-opacity duration-300">
-            {/* Using generic text for demo, replace with actual SVGs if needed */}
             <div className="text-slate-700 font-bold text-lg">Nexus Net</div>
             <div className="text-slate-700 font-bold text-lg">Retool</div>
             <div className="text-slate-700 font-bold text-lg">Remote</div>
