@@ -70,7 +70,7 @@ export const Hero3: React.FC<Hero2Props> = ({ onOpenDemo }) => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 gap-8 lg:gap-6">
+      <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-0 sm:pt-12 gap-8 lg:gap-6">
         
         {/* Left Column: Copy & CTA */}
         <div className="w-full lg:w-5/12 flex-shrink-0 max-w-2xl">
