@@ -145,7 +145,7 @@ export const Hero3: React.FC<Hero2Props> = ({ onOpenDemo }) => {
       </div>
 
       {/* Bottom Logo Strip */}
-      <div className="relative z-10 w-full pb-8 pt-6 border-t border-slate-100 bg-slate-50/50 mt-0 sm:mt-2">
+      <div className="relative z-10 w-full pb-8 pt-6 border-t border-slate-100 bg-slate-50 mt-0 sm:mt-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs text-slate-500 mb-4 uppercase tracking-widest">Trusted by leading operators</p>
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-12 opacity-60 hover:opacity-100 transition-opacity duration-300">
