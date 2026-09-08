@@ -6,8 +6,9 @@ import { BookDemoModal } from './components/BookDemoModal';
 
 // Import your pages
 import Home from './pages/Home';
+import Home1 from './pages/Home1';
 import Home2 from './pages/Home2';
-import Home3 from './pages/Home3';
+import ServicePage from './pages/ServicePage';
 
 export default function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -30,8 +31,9 @@ export default function App() {
         <Routes>
           {/* Home Route */}
           <Route path="/" element={<Home onOpenDemo={handleOpenDemo} />} />
-          <Route path="/home2" element={<Home2 onOpenDemo={handleOpenDemo} />} />
-          <Route path="/home3" element={<Home3 onOpenDemo={handleOpenDemo} />} />
+          <Route path="/services/:slug" element={<ServicePage onOpenDemo={handleOpenDemo} />} />
+          {/* <Route path="/home1" element={<Home1 onOpenDemo={handleOpenDemo} />} />
+          <Route path="/home2" element={<Home2 onOpenDemo={handleOpenDemo} />} /> */}
           
           {/* Example of how to add more routes later: */}
           {/* <Route path="/about" element={<About onOpenDemo={handleOpenDemo} />} /> */}
