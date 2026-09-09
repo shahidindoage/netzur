@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, ArrowUpRight, Check, Plus, Minus, Wallet, ShieldCheck } from 'lucide-react';
 import type { ServicePageData } from '../../data/services';
+import { CtaLink } from './CtaLink';
 
 interface Props {
   data: ServicePageData;
@@ -25,14 +26,15 @@ export const ServiceCtaBanner: React.FC<Props> = ({ data, onOpenDemo }) => {
         </h2>
         <div className="flex flex-wrap gap-3 shrink-0">
           {data.cta_banner.calls_to_action.map((cta, i) => (
-            <button
+            <CtaLink
               key={i}
-              onClick={onOpenDemo}
+              cta={cta}
+              onOpenDemo={onOpenDemo}
               className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#F13B0A] hover:bg-[#d8350a] text-white text-base font-semibold shadow-lg hover:shadow-[0_8px_30px_rgb(241,59,10,0.35)] transition-all cursor-pointer group"
             >
               <span>{cta.label}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </CtaLink>
           ))}
         </div>
       </div>
@@ -107,7 +109,7 @@ export const ServiceRelated: React.FC<Props> = ({ data }) => {
               {data.related_solutions.title}
             </h2>
           </div>
-          <p className="text-sm text-slate-500 max-w-xs">Keep exploring the platform — every module shares the same billing core.</p>
+          <p className="text-sm text-slate-500 max-w-xs">Keep exploring the platform - every module shares the same billing core.</p>
         </div>
         <div className="border-t border-slate-200" onMouseLeave={() => setActive(0)}>
           {data.related_solutions.links.map((link, idx) => {
@@ -168,7 +170,7 @@ export const ServiceFaq: React.FC<Props> = ({ data }) => {
                 </button>
                 {isOpen && (
                   <div className="px-6 pb-6 text-sm text-slate-600 leading-relaxed">
-                    Contact our team for a detailed walkthrough of this topic — deployment engineers respond within one business day. Book a demo and we will map it to your towers, payment gateways, and hardware.
+                    {q.answer}
                   </div>
                 )}
               </div>
@@ -200,22 +202,24 @@ export const ServiceFooterCta: React.FC<Props> = ({ data, onOpenDemo }) => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               {data.footer_cta.calls_to_action.map((cta, i) =>
                 cta.type === 'primary' ? (
-                  <button
+                  <CtaLink
                     key={i}
-                    onClick={onOpenDemo}
+                    cta={cta}
+                    onOpenDemo={onOpenDemo}
                     className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#F13B0A] hover:bg-[#d8350a] text-white font-semibold shadow-lg transition-all hover:scale-[1.02] active:scale-95 cursor-pointer"
                   >
                     {cta.label}
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </CtaLink>
                 ) : (
-                  <button
+                  <CtaLink
                     key={i}
-                    onClick={onOpenDemo}
+                    cta={cta}
+                    onOpenDemo={onOpenDemo}
                     className="inline-flex items-center px-6 py-3.5 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-white/20 transition-all cursor-pointer"
                   >
                     {cta.label}
-                  </button>
+                  </CtaLink>
                 ),
               )}
             </div>

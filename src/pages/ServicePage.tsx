@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getServiceBySlug } from '../data/services';
 import { ServiceHero } from '../components/service/ServiceHero';
-import { ServiceIntro, ServiceExplainer, ServiceFeaturesGrid, ServiceWhyChoose, ServiceUseCases } from '../components/service/ServiceFeatures';
+import { ServiceExplainer, ServiceFeaturesGrid, ServiceWhyChoose, ServiceUseCases } from '../components/service/ServiceFeatures';
 import {
   ServiceCtaBanner,
   ServicePaymentsCompliance,
@@ -17,12 +17,19 @@ export default function ServicePage({ onOpenDemo }: { onOpenDemo: () => void }) 
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [slug]);
+    document.title = data.meta.title;
+    let tag = document.querySelector('meta[name="description"]');
+    if (!tag) {
+      tag = document.createElement('meta');
+      tag.setAttribute('name', 'description');
+      document.head.appendChild(tag);
+    }
+    tag.setAttribute('content', data.meta.description);
+  }, [slug, data]);
 
   return (
     <>
       <ServiceHero data={data} onOpenDemo={onOpenDemo} />
-      {/* <ServiceIntro data={data} /> */}
       <ServiceExplainer data={data} />
       <ServiceFeaturesGrid data={data} onOpenDemo={onOpenDemo} />
       <ServiceWhyChoose data={data} />

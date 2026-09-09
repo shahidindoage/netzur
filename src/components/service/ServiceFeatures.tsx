@@ -35,43 +35,36 @@ export const ServiceIntro: React.FC<Props> = ({ data }) => {
   );
 };
 
-export const ServiceExplainer: React.FC<Props> = () => {
+export const ServiceExplainer: React.FC<Props> = ({ data }) => {
+  const explainer = data.explainer;
   return (
     <section className="bg-white py-10 sm:py-18 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="">
           {/* Left: clean editorial copy */}
           <div>
             {/* <span className="inline-block px-3 py-1 text-xs font-bold tracking-widest text-[#F13B0A] bg-orange-50 rounded-full uppercase mb-5">
               What is Radius Billing?
             </span> */}
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight mb-6">
-              What is WISP Billing <span className="text-slate-400">Software?</span>
+              {explainer.heading} <span className="text-slate-400">{explainer.heading_accent}</span>
             </h2>
-            <p className="text-base text-slate-600 leading-relaxed mb-4">
-              WISP Billing Software combines wireless subscriber management with automated billing
-              and network provisioning. It acts as an all-in-one operations platform — onboarding
-              subscribers across towers and sectors, automating recurring invoices and payment
-              collection, and controlling bandwidth, speed tiers, and service access in real time.
-            </p>
+            <p className="text-base text-slate-600 leading-relaxed mb-4">{explainer.body}</p>
             <p className="text-sm text-slate-600 leading-relaxed border-l-2 border-[#F13B0A] pl-4">
-              Netzur&apos;s WISP billing software integrates directly with your wireless
-              infrastructure — MikroTik, Ubiquiti, and Cisco gear across every tower — enabling
-              tower-level provisioning, IP pool management, and Mobile Money billing — making it a
-              complete wireless internet service provider platform for operators in Africa.
+              {explainer.highlight}
             </p>
           </div>
 
           {/* Right: single image */}
-          <div className="relative">
+          {/* <div className="relative">
             <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
-                alt="WISP tower infrastructure powered by Netzur billing and subscriber management"
+                src={explainer.image}
+                alt={explainer.image_alt}
                 className="w-full h-[320px] sm:h-[400px] object-cover"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
@@ -80,18 +73,16 @@ export const ServiceExplainer: React.FC<Props> = () => {
 
 export const ServiceFeaturesGrid: React.FC<Props> = ({ data }) => {
   const items = data.features_grid;
+  const header = data.features_header;
 
   return (
     <section id="service-features" className="bg-white py-10 sm:py-18 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight max-w-xl">
-            Complete platform for <span className="text-slate-400">WISP operations.</span>
+            {header.heading} <span className="text-slate-400">{header.heading_accent}</span>
           </h2>
-          <p className="text-base text-slate-600 max-w-sm md:text-left">
-            Billing, provisioning, payments, and monitoring — unified in one system built for
-            wireless networks.
-          </p>
+          <p className="text-base text-slate-600 max-w-sm md:text-left">{header.subtitle}</p>
         </div>
 
         <Swiper
@@ -152,7 +143,7 @@ export const ServiceFeaturesGrid: React.FC<Props> = ({ data }) => {
           })}
         </Swiper>
 
-        {/* Dots — bottom center */}
+        {/* Dots - bottom center */}
         <div className="service-features-dots flex items-center justify-center gap-2 mt-8" />
 
         <style>{`
@@ -171,15 +162,8 @@ export const ServiceFeaturesGrid: React.FC<Props> = ({ data }) => {
   );
 };
 
-export const ServiceWhyChoose: React.FC<Props> = () => {
-  const points = [
-    'Purpose-built for wireless ISP operations and tower infrastructure',
-    'Unified billing, CRM, payments, and network monitoring',
-    'Wireless subscriber provisioning with sector-level control',
-    'Automated workflows that reduce manual operational effort',
-    'Deployment in 6-12 hours with migration support',
-    'Dedicated support team with ISP domain expertise',
-  ];
+export const ServiceWhyChoose: React.FC<Props> = ({ data }) => {
+  const why = data.why_choose;
 
   return (
     <section className="bg-white py-10 sm:py-18 border-t border-slate-100">
@@ -191,23 +175,18 @@ export const ServiceWhyChoose: React.FC<Props> = () => {
               Why Choose Netzur
             </span> */}
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight mb-6">
-              Why Choose Netzur for <span className="text-slate-400">WISP Billing in Africa?</span>
+              {why.heading} <span className="text-slate-400">{why.heading_accent}</span>
             </h2>
-            <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Netzur is built for the operational realities of wireless ISPs — not adapted from
-              generic billing software. The platform addresses tower-based operations,
-              wireless-specific provisioning, and distributed subscriber management.
-            </p>
+            <p className="text-base text-slate-600 leading-relaxed mb-4">{why.body}</p>
             <p className="text-sm text-slate-600 leading-relaxed border-l-2 border-[#F13B0A] pl-4">
-              Netzur gives WISP operators the operational control and automation they need to grow
-              their subscriber base while maintaining service quality.
+              {why.highlight}
             </p>
           </div>
 
           {/* Right: single clean checklist card */}
           <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
             <div className="space-y-4">
-              {points.map((point) => (
+              {why.points.map((point) => (
                 <div key={point} className="flex items-start gap-3 text-sm text-slate-700">
                   <div className="w-5 h-5 rounded-full bg-orange-50 flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-3 h-3 text-[#F13B0A] stroke-[4]" />
@@ -223,15 +202,9 @@ export const ServiceWhyChoose: React.FC<Props> = () => {
   );
 };
 
-export const ServiceUseCases: React.FC<Props> = () => {
-  const cases = [
-    { icon: Radio, label: 'Wireless Internet Service Providers (WISPs)' },
-    { icon: Globe, label: 'Local and regional broadband providers' },
-    { icon: Users, label: 'Rural and community internet networks' },
-    { icon: Layers, label: 'Multi-tower wireless operators' },
-    { icon: Zap, label: 'Last-mile connectivity providers' },
-    { icon: MapPin, label: 'Franchise-based broadband businesses' },
-  ];
+export const ServiceUseCases: React.FC<Props> = ({ data }) => {
+  const useCases = data.use_cases;
+  const caseIcons = [Radio, Globe, Users, Layers, Zap, MapPin];
 
   return (
     <section className="bg-white py-10 sm:py-18 border-t border-slate-100">
@@ -242,35 +215,34 @@ export const ServiceUseCases: React.FC<Props> = () => {
               Industries & Use Cases
             </span> */}
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight">
-              Industries and <span className="text-slate-400">Use Cases</span>
+              {useCases.heading} <span className="text-slate-400">{useCases.heading_accent}</span>
             </h2>
           </div>
-          <p className="text-base text-slate-600 max-w-sm md:text-left">
-            Netzur&apos;s WISP billing software in Africa serves wireless operators across
-            different deployment models:
-          </p>
+          <p className="text-base text-slate-600 max-w-sm md:text-left">{useCases.description}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cases.map((item) => {
-            const Icon = item.icon;
+          {useCases.items.map((label, idx) => {
+            const Icon = caseIcons[idx % caseIcons.length];
             return (
               <div
-                key={item.label}
+                key={label}
                 className="group bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex items-center gap-4"
               >
                 <div className="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-[#F13B0A] flex items-center justify-center text-slate-700 group-hover:text-white transition-colors duration-300 shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
                 <span className="text-sm font-bold text-slate-900 tracking-tight leading-snug">
-                  {item.label}
+                  {label}
                 </span>
               </div>
             );
           })}
         </div>
 
-
+        {/* <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto text-center mt-10 border-t-2 border-[#F13B0A] pt-6">
+          {useCases.closing}
+        </p> */}
       </div>
     </section>
   );

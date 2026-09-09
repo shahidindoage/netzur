@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, Menu, X, ArrowRight, Shield, Zap, Server, Globe, Users, Headphones } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface NavbarProps {
   onOpenDemo?: () => void;
@@ -54,13 +55,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-3 shrink-0">
+        <Link to="/" className="flex items-center gap-3 shrink-0">
           <img 
             src="https://netzur.com/wp-content/uploads/2024/06/netzur-primary-logo.png" 
             alt="Netzur Logo" 
             className="h-6 w-auto object-contain"
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-700">

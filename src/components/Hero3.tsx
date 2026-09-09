@@ -80,7 +80,7 @@ export const Hero3: React.FC<Hero2Props> = ({ onOpenDemo }) => {
           >
             <span className="block">Next-Gen Billing,</span>
             <span className="block text-slate-500 mt-2">
-              Broadband Operations Made{' '}
+              Telecom Operations Made{' '}
               <span 
                 onClick={handleNextWord}
                 title="Click to switch word"
@@ -136,7 +136,7 @@ export const Hero3: React.FC<Hero2Props> = ({ onOpenDemo }) => {
         {/* Right Column: Moderately Sized Natural Image */}
         <div className="w-full lg:w-7/12 relative hidden md:flex justify-center items-center z-10">
           <img 
-            src="/hero3.png" 
+            src="/hero4.png" 
             alt="Netzur ISP Operations Dashboard" 
             className="w-full h-auto max-w-none lg:scale-110 origin-center object-contain mix-blend-multiply"
           />

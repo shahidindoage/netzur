@@ -1,31 +1,34 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Activity } from 'lucide-react';
-import type { ServicePageData } from '../../data/services';
+import type { ServicePageData, ServiceCTA } from '../../data/services';
+import { CtaLink, isDemoCta } from './CtaLink';
 
 interface Props {
   data: ServicePageData;
   onOpenDemo?: () => void;
 }
 
-function CTAButton({ label, type, onOpenDemo }: { label: string; type: 'primary' | 'secondary' | string; onOpenDemo?: () => void; key?: React.Key }) {
-  if (type === 'primary') {
+const CTAButton: React.FC<{ cta: ServiceCTA; onOpenDemo?: () => void }> = ({ cta, onOpenDemo }) => {
+  if (cta.type === 'primary') {
     return (
-      <button
-        onClick={onOpenDemo}
+      <CtaLink
+        cta={cta}
+        onOpenDemo={onOpenDemo}
         className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#F13B0A] hover:bg-[#d8350a] text-white text-base font-semibold tracking-wide shadow-lg hover:shadow-[0_8px_30px_rgb(241,59,10,0.25)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer group"
       >
-        <span>{label}</span>
+        <span>{cta.label}</span>
         <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform duration-200" />
-      </button>
+      </CtaLink>
     );
   }
   return (
-    <button
-      onClick={onOpenDemo}
+    <CtaLink
+      cta={cta}
+      onOpenDemo={onOpenDemo}
       className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 text-base font-medium tracking-wide shadow-sm transition-all cursor-pointer"
     >
-      {label}
-    </button>
+      {cta.label}
+    </CtaLink>
   );
 }
 
@@ -59,7 +62,7 @@ export const ServiceHero: React.FC<Props> = ({ data, onOpenDemo }) => {
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4 mb-8">
             {hero.calls_to_action.map((cta, i) => (
-              <CTAButton key={i} label={cta.label} type={cta.type} onOpenDemo={onOpenDemo} />
+              <CTAButton key={i} cta={cta} onOpenDemo={onOpenDemo} />
             ))}
           </div>
           <div className="invisible flex items-center gap-6 text-slate-500 text-sm">
@@ -77,11 +80,29 @@ export const ServiceHero: React.FC<Props> = ({ data, onOpenDemo }) => {
 
         <div className="w-full lg:w-7/12 relative hidden md:flex justify-center items-center z-10">
           <div className="relative w-full rounded-3xl overflow-hidden">
-            <img
-              src="/s2.png"
-              alt={hero.hero_image.alt_text}
-              className="w-full object-cover"
-            />
+            {hero.hero_image.link && !isDemoCta({ href: hero.hero_image.link }) ? (
+              <a href={hero.hero_image.link} className="block cursor-pointer">
+                <img
+                  src={hero.hero_image.src}
+                  alt={hero.hero_image.alt_text}
+                  className="w-full object-cover"
+                />
+              </a>
+            ) : hero.hero_image.link ? (
+              <button onClick={onOpenDemo} className="block w-full cursor-pointer">
+                <img
+                  src={hero.hero_image.src}
+                  alt={hero.hero_image.alt_text}
+                  className="w-full object-cover"
+                />
+              </button>
+            ) : (
+              <img
+                src={hero.hero_image.src}
+                alt={hero.hero_image.alt_text}
+                className="w-full object-cover"
+              />
+            )}
             {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent pointer-events-none" /> */}
             {/* <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
               <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 max-w-md">
@@ -96,7 +117,7 @@ export const ServiceHero: React.FC<Props> = ({ data, onOpenDemo }) => {
       <div className="relative z-10 w-full pb-8 pt-6 border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs text-slate-500 mb-4 uppercase tracking-widest">
-            Hardware independent — works with your stack
+            Hardware independent - works with your stack
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 opacity-60">
             {data.integrations_payment.supported_gateways.map((b) => (
