@@ -1,14 +1,20 @@
 import React from 'react';
-import type { ServiceCTA } from '../../data/services';
+
+/** Minimal CTA shape — satisfied by both ServiceCTA and FeatureCTA. */
+export interface CtaData {
+  label: string;
+  type: string;
+  href?: string;
+}
 
 /** `href` omitted, empty, or `'demo'` → opens the Book Demo modal. */
-export function isDemoCta(cta: Pick<ServiceCTA, 'href'>): boolean {
+export function isDemoCta(cta: Pick<CtaData, 'href'>): boolean {
   const href = (cta.href ?? '').trim();
   return href === '' || href === 'demo' || href === '#demo';
 }
 
 interface CtaLinkProps {
-  cta: ServiceCTA;
+  cta: CtaData;
   onOpenDemo?: () => void;
   className?: string;
   children: React.ReactNode;

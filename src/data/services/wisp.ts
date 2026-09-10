@@ -203,7 +203,7 @@ export const wispService: ServicePageData = {
       {
         question: 'How is WISP billing different from regular ISP billing?',
         answer:
-          'WISP billing needs to account for tower-based infrastructure, sector-level bandwidth allocation, and wireless-specific provisioning — which generic ISP billing tools typically do not support.',
+          'WISP billing needs to account for tower-based infrastructure, sector-level bandwidth allocation, and wireless-specific provisioning - which generic ISP billing tools typically do not support.',
       },
       {
         question: 'Does Netzur support both prepaid and postpaid billing?',
