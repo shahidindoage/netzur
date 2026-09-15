@@ -11,6 +11,8 @@ import Home2 from './pages/Home2';
 import ServicePage from './pages/ServicePage';
 import FeaturePage from './pages/FeaturePage';
 import SolutionPage from './pages/SolutionPage';
+import WhoWeAre from './pages/WhoWeAre';
+import JoinTeam from './pages/JoinTeam';
 
 export default function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -36,6 +38,8 @@ export default function App() {
           <Route path="/services/:slug" element={<ServicePage onOpenDemo={handleOpenDemo} />} />
           <Route path="/features/:slug" element={<FeaturePage onOpenDemo={handleOpenDemo} />} />
           <Route path="/solutions/:slug" element={<SolutionPage onOpenDemo={handleOpenDemo} />} />
+          <Route path="/who-we-are" element={<WhoWeAre onOpenDemo={handleOpenDemo} />} />
+          <Route path="/join-the-team" element={<JoinTeam onOpenDemo={handleOpenDemo} />} />
           {/* <Route path="/home1" element={<Home1 onOpenDemo={handleOpenDemo} />} />
           <Route path="/home2" element={<Home2 onOpenDemo={handleOpenDemo} />} /> */}
           

@@ -188,8 +188,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
 
             {activeDropdown === 'company' && (
               <div className="absolute top-full left-0 w-48 bg-white border border-slate-200 rounded-2xl shadow-xl p-2 flex flex-col gap-0.5 animate-in fade-in slide-in-from-top-2 duration-150">
-                <a href="#about" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Who We Are</a>
-                <a href="#careers" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Join the Team</a>
+                <a href="/who-we-are" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Who We Are</a>
+                <a href="/join-the-team" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Join the Team</a>
                 <a href="#contact" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Contact</a>
               </div>
             )}
