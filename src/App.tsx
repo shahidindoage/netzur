@@ -13,6 +13,10 @@ import FeaturePage from './pages/FeaturePage';
 import SolutionPage from './pages/SolutionPage';
 import WhoWeAre from './pages/WhoWeAre';
 import JoinTeam from './pages/JoinTeam';
+import Integrations from './pages/Integrations';
+import Pricing from './pages/Pricing';
+import ContactUs from './pages/ContactUs';
+import BookDemo from './pages/BookDemo';
 
 export default function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -40,6 +44,10 @@ export default function App() {
           <Route path="/solutions/:slug" element={<SolutionPage onOpenDemo={handleOpenDemo} />} />
           <Route path="/who-we-are" element={<WhoWeAre onOpenDemo={handleOpenDemo} />} />
           <Route path="/join-the-team" element={<JoinTeam onOpenDemo={handleOpenDemo} />} />
+          <Route path="/integrations" element={<Integrations onOpenDemo={handleOpenDemo} />} />
+          <Route path="/pricing" element={<Pricing onOpenDemo={handleOpenDemo} />} />
+          <Route path="/contact-us" element={<ContactUs onOpenDemo={handleOpenDemo} />} />
+          <Route path="/book-a-demo" element={<BookDemo onOpenDemo={handleOpenDemo} />} />
           {/* <Route path="/home1" element={<Home1 onOpenDemo={handleOpenDemo} />} />
           <Route path="/home2" element={<Home2 onOpenDemo={handleOpenDemo} />} /> */}
           
