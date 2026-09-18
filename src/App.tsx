@@ -17,6 +17,7 @@ import Integrations from './pages/Integrations';
 import Pricing from './pages/Pricing';
 import ContactUs from './pages/ContactUs';
 import BookDemo from './pages/BookDemo';
+import Rebranding from './pages/Rebranding';
 
 export default function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/pricing" element={<Pricing onOpenDemo={handleOpenDemo} />} />
           <Route path="/contact-us" element={<ContactUs onOpenDemo={handleOpenDemo} />} />
           <Route path="/book-a-demo" element={<BookDemo onOpenDemo={handleOpenDemo} />} />
+          <Route path="/rebranding" element={<Rebranding onOpenDemo={handleOpenDemo} />} />
           {/* <Route path="/home1" element={<Home1 onOpenDemo={handleOpenDemo} />} />
           <Route path="/home2" element={<Home2 onOpenDemo={handleOpenDemo} />} /> */}
           
