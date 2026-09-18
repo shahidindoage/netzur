@@ -382,7 +382,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
               <div className="absolute top-full right-0 w-48 bg-white border border-slate-200 rounded-2xl shadow-xl p-2 flex flex-col gap-0.5 animate-in fade-in slide-in-from-top-2 duration-150">
                 <a href="#blog" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Blog</a>
                 <a href="#kb" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Knowledge Base</a>
-                <a href="#rebranding" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Rebranding</a>
+                <a href="/rebranding" className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#F13B0A]">Rebranding</a>
               </div>
             )}
           </div>
@@ -553,7 +553,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
               <div className="pb-3 pl-2 space-y-0.5">
                 <a href="#blog" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 px-2 ml-2 text-[13px] font-medium text-slate-600 border-l-2 border-slate-100">Blog</a>
                 <a href="#kb" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 px-2 ml-2 text-[13px] font-medium text-slate-600 border-l-2 border-slate-100">Knowledge Base</a>
-                <a href="#rebranding" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 px-2 ml-2 text-[13px] font-medium text-slate-600 border-l-2 border-slate-100">Rebranding</a>
+                <a href="/rebranding" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 px-2 ml-2 text-[13px] font-medium text-slate-600 border-l-2 border-slate-100">Rebranding</a>
               </div>
             )}
           </div>
