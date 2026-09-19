@@ -45,11 +45,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
       icon: Server,
       href: '/services/isp-billing-and-management-software-in-india',
       links: [
-        { name: 'ISP Billing and Management Software in India', desc: 'UPI, GST & regional compliance', href: '/services/isp-billing-and-management-software-in-india' },
-        { name: 'ISP Billing and Management Software in Philippines', desc: 'LGU & multi-branch ready', href: '/services/isp-billing-and-management-software-in-philippines' },
-        { name: 'ISP Billing and Management Software in Kenya', desc: 'M-Pesa & CA compliance', href: '/services/isp-billing-and-management-software-in-kenya' },
-        { name: 'ISP Billing and Management Software in Nigeria', desc: 'NCC-ready deployments', href: '/services/isp-billing-and-management-software-in-nigeria' },
-        { name: 'ISP Billing and Management Software in Africa', desc: 'Multi-country scale', href: '/services/isp-billing-and-management-software-in-africa' },
+        { name: 'ISP Billing and Management Software in India', desc: 'UPI, GST & regional compliance', href: '/services/isp-billing-and-management-software-in-india-netzur' },
+        { name: 'ISP Billing and Management Software in Philippines', desc: 'LGU & multi-branch ready', href: '/services/isp-billing-and-management-software-in-philippines-netzur' },
+        { name: 'ISP Billing and Management Software in Kenya', desc: 'M-Pesa & CA compliance', href: '/services/isp-billing-and-management-software-in-kenya-netzur' },
+        { name: 'ISP Billing and Management Software in Nigeria', desc: 'NCC-ready deployments', href: '/services/isp-billing-and-management-software-in-nigeria-netzur' },
+        { name: 'ISP Billing and Management Software in Africa', desc: 'Multi-country scale', href: '/services/isp-billing-and-management-software-in-africa-netzur' },
       ]
     },
     {
@@ -58,11 +58,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
       icon: ShieldCheck,
       href: '/services/radius-billing-software-in-india',
       links: [
-        { name: 'Radius Billing Software in India', desc: 'High-density BNG scale', href: '/services/radius-billing-software-in-india' },
-        { name: 'Radius Billing Software in Africa', desc: 'Low-latency core nodes', href: '/services/radius-billing-software-in-africa' },
-        { name: 'Radius Billing Software in Kenya', desc: 'Metro & edge PoPs', href: '/services/radius-billing-software-in-kenya' },
-        { name: 'Radius Billing Software in Nigeria', desc: 'Redundant core design', href: '/services/radius-billing-software-in-nigeria' },
-        { name: 'Radius Billing Software in Philippines', desc: 'Island-ready backhaul', href: '/services/radius-billing-software-in-philippines' },
+        { name: 'Radius Billing Software in India', desc: 'High-density BNG scale', href: '/services/radius-billing-software-in-india-netzur' },
+        { name: 'Radius Billing Software in Africa', desc: 'Low-latency core nodes', href: '/services/radius-billing-software-in-africa-netzur' },
+        { name: 'Radius Billing Software in Kenya', desc: 'Metro & edge PoPs', href: '/services/radius-billing-software-in-kenya-netzur' },
+        { name: 'Radius Billing Software in Nigeria', desc: 'Redundant core design', href: '/services/radius-billing-software-in-nigeria-netzur' },
+        { name: 'Radius Billing Software in Philippines', desc: 'Island-ready backhaul', href: '/services/radius-billing-software-in-philippines-netzur' },
       ]
     },
     {
@@ -71,11 +71,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
       icon: RadioTower,
       href: '/services/wisp-billing-software-in-india',
       links: [
-        { name: 'WISP Billing Software in Africa', desc: 'Tower-aware shaping & FUP', href: '/services/wisp-billing-software-in-africa' },
-        { name: 'WISP Billing Software in India', desc: 'PM-WANI & hotspot ready', href: '/services/wisp-billing-software-in-india' },
-        { name: 'WISP Billing Software in Kenya', desc: 'Sector & CPE manager', href: '/services/wisp-billing-software-in-kenya' },
-        { name: 'WISP Billing Software in Nigeria', desc: 'Prepaid & voucher flows', href: '/services/wisp-billing-software-in-nigeria' },
-        { name: 'WISP Billing Software in Philippines', desc: 'CBRS & fixed wireless', href: '/services/wisp-billing-software-in-philippines' },
+        { name: 'WISP Billing Software in Africa', desc: 'Tower-aware shaping & FUP', href: '/services/wisp-billing-software-in-africa-netzur' },
+        { name: 'WISP Billing Software in India', desc: 'PM-WANI & hotspot ready', href: '/services/wisp-billing-software-in-india-netzur' },
+        { name: 'WISP Billing Software in Kenya', desc: 'Sector & CPE manager', href: '/services/wisp-billing-software-in-kenya-netzur' },
+        { name: 'WISP Billing Software in Nigeria', desc: 'Prepaid & voucher flows', href: '/services/wisp-billing-software-in-nigeria-netzur' },
+        { name: 'WISP Billing Software in Philippines', desc: 'CBRS & fixed wireless', href: '/services/wisp-billing-software-in-philippines-netzur' },
       ]
     },
     {
