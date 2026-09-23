@@ -281,7 +281,7 @@ export const WhoWeAreRelated: React.FC = () => {
   const [active, setActive] = useState(0);
   const links = [
     { title: 'Billing & Finance Module', url: '/features/billing-and-finance' },
-    { title: 'WISP Billing Software in Africa', url: '/services/wisp-billing-software-in-africa-netzur' },
+    { title: 'WISP Billing Software in Africa', url: '/wisp-billing-software-in-africa-netzur' },
     { title: 'Internet Management & Billing for ISPs', url: '/solutions/internet-management-and-billing-system-for-isp' },
   ];
   return (

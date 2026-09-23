@@ -1,0 +1,29 @@
+Options -MultiViews
+RewriteEngine On
+
+# Real asset files (hashed bundles, images, fonts) -> serve directly for speed
+RewriteCond %{REQUEST_URI} \.(js|css|map|png|jpg|jpeg|gif|webp|avif|svg|ico|woff2?|ttf|eot|json|txt|xml|pdf)$ [NC]
+RewriteRule ^ - [L]
+
+# All page routes -> PHP entry:
+#  - injects the LIVE meta title/description from WordPress ACF (no rebuild needed)
+#  - otherwise behaves like a normal SPA (serves the prerendered route file or index.html)
+RewriteRule ^ index.php [L]
+
+# Long-term cache for hashed static assets built by Vite
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|png|jpg|jpeg|webp|svg|woff2|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

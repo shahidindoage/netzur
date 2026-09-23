@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getServiceBySlug } from '../data/services';
 import type { ServicePageData } from '../data/services/types';
+import { applyPageMeta, parseYoastHead } from '../lib/seo';
 import { ServiceHero } from '../components/service/ServiceHero';
 import { ServiceExplainer, ServiceFeaturesGrid, ServiceWhyChoose, ServiceUseCases } from '../components/service/ServiceFeatures';
 import {
@@ -38,6 +39,27 @@ export default function ServicePage({ onOpenDemo }: { onOpenDemo: () => void }) 
         tag.setAttribute('content', serviceData.meta.description);
       } else {
         document.title = 'Service Not Found';
+      }
+
+      // Prefer the Yoast SEO title/description (from WordPress) when available.
+      if (serviceData && slug) {
+        fetch(
+          `https://netzur.com/wp-json/wp/v2/netzur_services?slug=${encodeURIComponent(slug)}&_fields=yoast_head`
+        )
+          .then((res) => (res.ok ? res.json() : null))
+          .then((data: unknown) => {
+            if (!isMounted) return;
+            const posts = Array.isArray(data) ? (data as { yoast_head?: string }[]) : [];
+            const yoast = parseYoastHead(posts[0]?.yoast_head);
+            if (!yoast?.title && !yoast?.description) return;
+            applyPageMeta(
+              yoast.title || serviceData.meta.title,
+              yoast.description || serviceData.meta.description
+            );
+          })
+          .catch(() => {
+            /* keep ACF meta */
+          });
       }
       setLoading(false);
     });

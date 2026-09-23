@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom'; // <-- Import Routes and Route
+import { Routes, Route, Navigate, useParams } from 'react-router-dom'; // <-- Import Routes and Route
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BookDemoModal } from './components/BookDemoModal';
@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Home1 from './pages/Home1';
 import Home2 from './pages/Home2';
 import ServicePage from './pages/ServicePage';
+import Services from './pages/Services';
 import FeaturePage from './pages/FeaturePage';
 import SolutionPage from './pages/SolutionPage';
 import WhoWeAre from './pages/WhoWeAre';
@@ -40,7 +41,9 @@ export default function App() {
         <Routes>
           {/* Home Route */}
           <Route path="/" element={<Home onOpenDemo={handleOpenDemo} />} />
-          <Route path="/services/:slug" element={<ServicePage onOpenDemo={handleOpenDemo} />} />
+          <Route path="/services" element={<Services onOpenDemo={handleOpenDemo} />} />
+          <Route path="/:slug" element={<ServicePage onOpenDemo={handleOpenDemo} />} />
+          <Route path="/services/:slug" element={<OldServiceRedirect />} />
           <Route path="/features/:slug" element={<FeaturePage onOpenDemo={handleOpenDemo} />} />
           <Route path="/solutions/:slug" element={<SolutionPage onOpenDemo={handleOpenDemo} />} />
           <Route path="/who-we-are" element={<WhoWeAre onOpenDemo={handleOpenDemo} />} />
@@ -69,4 +72,10 @@ export default function App() {
       />
     </div>
   );
+}
+
+// 301-style forward for the old /services/<slug> URLs.
+function OldServiceRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={`/${slug ?? ''}`} replace />;
 }

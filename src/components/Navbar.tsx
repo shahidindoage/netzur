@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
 
   // Mega Menu Data Structures
   const productFeatures = [
-    { name: 'Billing & Finance', desc: 'Invoicing & payment gateways', href: '#billing' },
+    { name: 'Billing & Finance', desc: 'Invoicing & payment gateways', href: '/features/billing-and-finance' },
     { name: 'Subscriber Management', desc: 'Portal & user lifecycles', href: '#subscriber' },
     { name: 'Franchise & Reseller', desc: 'Multi-tier partner nodes', href: '#franchise' },
     { name: 'Ticketing System', desc: 'Automated SLA support', href: '#ticketing' },
@@ -30,12 +30,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
   ];
 
   const solutionsList = [
-    { title: 'ISP Billing Systems', desc: 'End-to-end ISP automation', icon: Server },
-    { title: 'Hotel Wi-Fi Hotspots', desc: 'PMS integrations & guest passes', icon: Globe },
-    { title: 'OTP Public Wi-Fi', desc: 'SMS auth & legal compliance', icon: Shield },
-    { title: 'Institute & Campus', desc: 'Bandwidth quota controls', icon: Users },
-    { title: 'Library Systems', desc: 'Timed access management', icon: Zap },
-    { title: 'Retail Business Wi-Fi', desc: 'Marketing & splash screens', icon: Headphones },
+    { title: 'ISP Billing Systems', desc: 'End-to-end ISP automation', icon: Server, href: '/solutions/internet-management-and-billing-system-for-isp' },
+    { title: 'Hotel Wi-Fi Hotspots', desc: 'PMS integrations & guest passes', icon: Globe, href: '/solutions/hotel-wifi-management-and-billing-software' },
+    { title: 'OTP Public Wi-Fi', desc: 'SMS auth & legal compliance', icon: Shield, href: '/solutions/otp-based-wifi-hotspot-for-public-places' },
+    { title: 'Institute & Campus', desc: 'Bandwidth quota controls', icon: Users, href: '/solutions/wifi-management-system-for-educational-institutes' },
+    { title: 'Library Systems', desc: 'Timed access management', icon: Zap, href: '/solutions/public-library-wifi-management-and-billing-software' },
+    { title: 'Retail Business Wi-Fi', desc: 'Marketing & splash screens', icon: Headphones, href: '/solutions/retail-business-wifi-software-for-store-customers' },
   ];
 
   const servicesCategories = [
@@ -43,78 +43,78 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
       title: 'ISP Billing and Management',
       desc: 'Fiber, broadband & ISP operations',
       icon: Server,
-      href: '/services/isp-billing-and-management-software-in-india',
+      href: '/isp-billing-and-management-software-in-india-netzur',
       links: [
-        { name: 'ISP Billing and Management Software in India', desc: 'UPI, GST & regional compliance', href: '/services/isp-billing-and-management-software-in-india-netzur' },
-        { name: 'ISP Billing and Management Software in Philippines', desc: 'LGU & multi-branch ready', href: '/services/isp-billing-and-management-software-in-philippines-netzur' },
-        { name: 'ISP Billing and Management Software in Kenya', desc: 'M-Pesa & CA compliance', href: '/services/isp-billing-and-management-software-in-kenya-netzur' },
-        { name: 'ISP Billing and Management Software in Nigeria', desc: 'NCC-ready deployments', href: '/services/isp-billing-and-management-software-in-nigeria-netzur' },
-        { name: 'ISP Billing and Management Software in Africa', desc: 'Multi-country scale', href: '/services/isp-billing-and-management-software-in-africa-netzur' },
+        { name: 'ISP Billing and Management Software in India', desc: 'UPI, GST & regional compliance', href: '/isp-billing-and-management-software-in-india-netzur' },
+        { name: 'ISP Billing and Management Software in Philippines', desc: 'LGU & multi-branch ready', href: 'isp-billing-and-management-software-in-philippines-netzur' },
+        { name: 'ISP Billing and Management Software in Kenya', desc: 'M-Pesa & CA compliance', href: 'isp-billing-and-management-software-in-kenya-netzur' },
+        { name: 'ISP Billing and Management Software in Nigeria', desc: 'NCC-ready deployments', href: 'isp-billing-and-management-software-in-nigeria-netzur' },
+        { name: 'ISP Billing and Management Software in Africa', desc: 'Multi-country scale', href: 'isp-billing-and-management-software-in-africa-netzur' },
       ]
     },
     {
       title: 'Radius Billing Software',
       desc: 'AAA, RADIUS & core authentication',
       icon: ShieldCheck,
-      href: '/services/radius-billing-software-in-india',
+      href: '/radius-billing-software-in-india-netzur',
       links: [
-        { name: 'Radius Billing Software in India', desc: 'High-density BNG scale', href: '/services/radius-billing-software-in-india-netzur' },
-        { name: 'Radius Billing Software in Africa', desc: 'Low-latency core nodes', href: '/services/radius-billing-software-in-africa-netzur' },
-        { name: 'Radius Billing Software in Kenya', desc: 'Metro & edge PoPs', href: '/services/radius-billing-software-in-kenya-netzur' },
-        { name: 'Radius Billing Software in Nigeria', desc: 'Redundant core design', href: '/services/radius-billing-software-in-nigeria-netzur' },
-        { name: 'Radius Billing Software in Philippines', desc: 'Island-ready backhaul', href: '/services/radius-billing-software-in-philippines-netzur' },
+        { name: 'Radius Billing Software in India', desc: 'High-density BNG scale', href: '/radius-billing-software-in-india-netzur' },
+        { name: 'Radius Billing Software in Africa', desc: 'Low-latency core nodes', href: 'radius-billing-software-in-africa-netzur' },
+        { name: 'Radius Billing Software in Kenya', desc: 'Metro & edge PoPs', href: 'radius-billing-software-in-kenya-netzur' },
+        { name: 'Radius Billing Software in Nigeria', desc: 'Redundant core design', href: 'radius-billing-software-in-nigeria-netzur' },
+        { name: 'Radius Billing Software in Philippines', desc: 'Island-ready backhaul', href: 'radius-billing-software-in-philippines-netzur' },
       ]
     },
     {
       title: 'WISP Billing Software',
       desc: 'Wireless, towers & subscriber control',
       icon: RadioTower,
-      href: '/services/wisp-billing-software-in-india',
+      href: '/wisp-billing-software-in-india-netzur',
       links: [
-        { name: 'WISP Billing Software in Africa', desc: 'Tower-aware shaping & FUP', href: '/services/wisp-billing-software-in-africa-netzur' },
-        { name: 'WISP Billing Software in India', desc: 'PM-WANI & hotspot ready', href: '/services/wisp-billing-software-in-india-netzur' },
-        { name: 'WISP Billing Software in Kenya', desc: 'Sector & CPE manager', href: '/services/wisp-billing-software-in-kenya-netzur' },
-        { name: 'WISP Billing Software in Nigeria', desc: 'Prepaid & voucher flows', href: '/services/wisp-billing-software-in-nigeria-netzur' },
-        { name: 'WISP Billing Software in Philippines', desc: 'CBRS & fixed wireless', href: '/services/wisp-billing-software-in-philippines-netzur' },
+        { name: 'WISP Billing Software in Africa', desc: 'Tower-aware shaping & FUP', href: 'wisp-billing-software-in-africa-netzur' },
+        { name: 'WISP Billing Software in India', desc: 'PM-WANI & hotspot ready', href: '/wisp-billing-software-in-india-netzur' },
+        { name: 'WISP Billing Software in Kenya', desc: 'Sector & CPE manager', href: 'wisp-billing-software-in-kenya-netzur' },
+        { name: 'WISP Billing Software in Nigeria', desc: 'Prepaid & voucher flows', href: 'wisp-billing-software-in-nigeria-netzur' },
+        { name: 'WISP Billing Software in Philippines', desc: 'CBRS & fixed wireless', href: 'wisp-billing-software-in-philippines-netzur' },
       ]
     },
     {
       title: 'MikroTik Billing System',
       desc: 'RouterOS & hotspot automation',
       icon: Router,
-      href: '/services/mikrotik-billing-system-in-india',
+      href: '/mikrotik-billing-system-in-india-netzur',
       links: [
-        { name: 'MikroTik Billing System in Africa', desc: 'Native API & RADIUS CoA', href: '/services/mikrotik-billing-system-in-africa' },
-        { name: 'MikroTik Billing System in India', desc: 'Hotspot & PPPoE automation', href: '/services/mikrotik-billing-system-in-india' },
-        { name: 'MikroTik Billing System in Kenya', desc: 'Queue & burst policies', href: '/services/mikrotik-billing-system-in-kenya' },
-        { name: 'MikroTik Billing System in Nigeria', desc: 'Voucher & captive portal', href: '/services/mikrotik-billing-system-in-nigeria' },
-        { name: 'MikroTik Billing System in Philippines', desc: 'Multi-site centralized control', href: '/services/mikrotik-billing-system-in-philippines' },
+        { name: 'MikroTik Billing System in Africa', desc: 'Native API & RADIUS CoA', href: 'mikrotik-billing-system-in-africa-netzur' },
+        { name: 'MikroTik Billing System in India', desc: 'Hotspot & PPPoE automation', href: '/mikrotik-billing-system-in-india-netzur' },
+        { name: 'MikroTik Billing System in Kenya', desc: 'Queue & burst policies', href: 'mikrotik-billing-system-in-kenya-netzur' },
+        { name: 'MikroTik Billing System in Nigeria', desc: 'Voucher & captive portal', href: 'mikrotik-billing-system-in-nigeria-netzur' },
+        { name: 'MikroTik Billing System in Philippines', desc: 'Multi-site centralized control', href: 'mikrotik-billing-system-in-philippines-netzur' },
       ]
     },
     {
       title: 'Retail Business WiFi Software',
       desc: 'Stores, outlets & marketing Wi-Fi',
       icon: Store,
-      href: '/services/retail-business-wifi-software-in-india',
+      href: '/retail-business-wifi-software-in-india-netzur',
       links: [
-        { name: 'Retail Business WiFi Software in Africa', desc: 'Mall & chain deployments', href: '/services/retail-business-wifi-software-in-africa' },
-        { name: 'Retail Business WiFi Software in India', desc: 'Multi-outlet control', href: '/services/retail-business-wifi-software-in-india' },
-        { name: 'Retail Business WiFi Software in Nigeria', desc: 'Splash & promo campaigns', href: '/services/retail-business-wifi-software-in-nigeria' },
-        { name: 'Retail Business WiFi Software in Philippines', desc: 'Branch analytics & insights', href: '/services/retail-business-wifi-software-in-philippines' },
-        { name: 'Retail Business WiFi Software in Kenya', desc: 'Loyalty & footfall Wi-Fi', href: '/services/retail-business-wifi-software-in-kenya' },
+        { name: 'Retail Business WiFi Software in Africa', desc: 'Mall & chain deployments', href: 'retail-business-wifi-software-in-africa-netzur' },
+        { name: 'Retail Business WiFi Software in India', desc: 'Multi-outlet control', href: '/retail-business-wifi-software-in-india-netzur' },
+        { name: 'Retail Business WiFi Software in Nigeria', desc: 'Splash & promo campaigns', href: 'retail-business-wifi-software-in-nigeria-netzur' },
+        { name: 'Retail Business WiFi Software in Philippines', desc: 'Branch analytics & insights', href: 'retail-business-wifi-software-in-philippines-netzur' },
+        { name: 'Retail Business WiFi Software in Kenya', desc: 'Loyalty & footfall Wi-Fi', href: 'retail-business-wifi-software-in-kenya-netzur' },
       ]
     },
     {
       title: 'Hotel WiFi Hotspot Solutions',
       desc: 'Guests, PMS & hospitality',
       icon: Hotel,
-      href: '/services/hotel-wifi-hotspot-solutions-in-india',
+      href: '/hotel-wifi-hotspot-solutions-in-india-netzur',
       links: [
-        { name: 'Hotel WiFi Hotspot Solutions in Africa', desc: 'Resort & lodge scale', href: '/services/hotel-wifi-hotspot-solutions-in-africa' },
-        { name: 'Hotel WiFi Hotspot Solutions in India', desc: 'PMS & guest passes', href: '/services/hotel-wifi-hotspot-solutions-in-india' },
-        { name: 'Hotel WiFi Hotspot Solutions in Kenya', desc: 'Conference & banquet Wi-Fi', href: '/services/hotel-wifi-hotspot-solutions-in-kenya' },
-        { name: 'Hotel WiFi Hotspot Solutions in Nigeria', desc: 'Room-plan & timed access', href: '/services/hotel-wifi-hotspot-solutions-in-nigeria' },
-        { name: 'Hotel WiFi Hotspot Solutions in Philippines', desc: 'Island resort coverage', href: '/services/hotel-wifi-hotspot-solutions-in-philippines' },
+        { name: 'Hotel WiFi Hotspot Solutions in Africa', desc: 'Resort & lodge scale', href: 'hotel-wifi-hotspot-solutions-in-africa-netzur' },
+        { name: 'Hotel WiFi Hotspot Solutions in India', desc: 'PMS & guest passes', href: '/hotel-wifi-hotspot-solutions-in-india-netzur' },
+        { name: 'Hotel WiFi Hotspot Solutions in Kenya', desc: 'Conference & banquet Wi-Fi', href: 'hotel-wifi-hotspot-solutions-in-kenya-netzur' },
+        { name: 'Hotel WiFi Hotspot Solutions in Nigeria', desc: 'Room-plan & timed access', href: 'hotel-wifi-hotspot-solutions-in-nigeria-netzur' },
+        { name: 'Hotel WiFi Hotspot Solutions in Philippines', desc: 'Island resort coverage', href: 'hotel-wifi-hotspot-solutions-in-philippines-netzur' },
       ]
     }
   ];
@@ -156,13 +156,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
                 
                 <div className="grid grid-cols-2 gap-2">
                   {productFeatures.map((item, idx) => (
-                    <a key={idx} href={item.href} className="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-start justify-between group">
+                    <Link key={idx} to={item.href} className="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-start justify-between group">
                       <div>
                         <div className="text-xs font-semibold text-slate-800 group-hover:text-[#F13B0A] transition-colors">{item.name}</div>
                         <div className="text-[11px] text-slate-400 font-normal">{item.desc}</div>
                       </div>
                       <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all mt-0.5" />
-                    </a>
+                    </Link>
                   ))}
                 </div>
 
@@ -196,7 +196,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
                   {solutionsList.map((item, idx) => {
                     const Icon = item.icon;
                     return (
-                      <a key={idx} href="#solutions" className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 group transition-colors">
+                      <Link to={item.href} key={idx} className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 group transition-colors">
                         <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 group-hover:bg-[#F13B0A]/10 group-hover:text-[#F13B0A] flex items-center justify-center shrink-0 transition-colors">
                           <Icon className="w-4 h-4" />
                         </div>
@@ -204,7 +204,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
                           <div className="text-xs font-semibold text-slate-800 group-hover:text-[#F13B0A] transition-colors">{item.title}</div>
                           <div className="text-[11px] text-slate-400 font-normal">{item.desc}</div>
                         </div>
-                      </a>
+                      </Link>
                     );
                   })}
                 </div>

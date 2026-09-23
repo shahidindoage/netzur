@@ -3,11 +3,18 @@ import { FeatureDeepDives2 } from "../components/FeatureDeepDives2";
 import { Hero3 } from "../components/Hero3";
 import { IspSolutionsGrid2 } from "../components/IspSolutionsGrid2";
 import { WhyNetzur2 } from "../components/WhyNetzur2";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 
 
 // Accept onOpenDemo as a prop so buttons can still trigger the modal
 export default function Home({ onOpenDemo }: { onOpenDemo: () => void }) {
+  usePageMeta(
+    "home",
+    "Internet Management & Billing System for ISPs | Netzur |",
+    "Enterprise-grade billing, subscriber management, and network operations platform for modern Fiber, Wireless, and Municipal ISPs."
+  );
+
   return (
     <>
       <Hero3 onOpenDemo={onOpenDemo} />

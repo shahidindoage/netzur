@@ -5,23 +5,14 @@ import {
   RebrandingVision,
   RebrandingFooterCta,
 } from '../components/company/RebrandingSections';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 const META_TITLE = 'Netzur - A Bold New Identity | From Janitor to Netzur';
 const META_DESCRIPTION =
   'Introducing Netzur — a bold new identity for a smarter ISP future. From Janitor RADIUS to a complete billing, bandwidth, CRM and franchisee platform.';
 
 export default function Rebranding({ onOpenDemo }: { onOpenDemo: () => void }) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = META_TITLE;
-    let tag = document.querySelector('meta[name="description"]');
-    if (!tag) {
-      tag = document.createElement('meta');
-      tag.setAttribute('name', 'description');
-      document.head.appendChild(tag);
-    }
-    tag.setAttribute('content', META_DESCRIPTION);
-  }, []);
+  usePageMeta('rebranding', META_TITLE, META_DESCRIPTION);
 
   return (
     <>

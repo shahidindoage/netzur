@@ -18,7 +18,7 @@ export const ispBillingSolution: SolutionPageData = {
       { label: 'Pricing', type: 'secondary', href: '/pricing' },
     ],
     hero_image: {
-      src: '/f8.png',
+      src: '/solutions2.png',
       alt_text: 'Netzur Internet Management and Billing System dashboard',
       description: 'Subscriber managing internet plan, usage, and billing in the Netzur platform.',
       link: 'demo',

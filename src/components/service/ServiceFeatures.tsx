@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import {
   Layers, CreditCard, Users, Cpu, MapPin, Radio, ShieldCheck, Globe, Zap, Check,
+  ChevronLeft, ChevronRight,
 } from 'lucide-react';
 import type { ServicePageData } from '../../data/services';
 
@@ -74,6 +75,7 @@ export const ServiceExplainer: React.FC<Props> = ({ data }) => {
 export const ServiceFeaturesGrid: React.FC<Props> = ({ data }) => {
   const items = data.features_grid;
   const header = data.features_header;
+  const swiperRef = useRef<any>(null);
 
   return (
     <section id="service-features" className="bg-white py-10 sm:py-18 overflow-hidden">
@@ -85,8 +87,12 @@ export const ServiceFeaturesGrid: React.FC<Props> = ({ data }) => {
           <p className="text-base text-slate-600 max-w-sm md:text-left">{header.subtitle}</p>
         </div>
 
-        <Swiper
-          modules={[Pagination, Autoplay]}
+        <div className="relative">
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            modules={[Pagination, Autoplay]}
           spaceBetween={20}
           slidesPerView={1}
           breakpoints={{
@@ -142,6 +148,25 @@ export const ServiceFeaturesGrid: React.FC<Props> = ({ data }) => {
             );
           })}
         </Swiper>
+
+          {/* Slide Controls - overlaid left/right */}
+          <button
+            type="button"
+            onClick={() => swiperRef.current?.slidePrev()}
+            aria-label="Previous features"
+            className="absolute left-1 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 shadow-lg transition-all duration-300 hover:bg-[#F13B0A] hover:text-white hover:border-[#F13B0A] hover:scale-[1.05] active:scale-95 cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => swiperRef.current?.slideNext()}
+            aria-label="Next features"
+            className="absolute right-1 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 shadow-lg transition-all duration-300 hover:bg-[#F13B0A] hover:text-white hover:border-[#F13B0A] hover:scale-[1.05] active:scale-95 cursor-pointer"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
 
         {/* Dots - bottom center */}
         <div className="service-features-dots flex items-center justify-center gap-2 mt-8" />
