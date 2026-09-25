@@ -13,7 +13,7 @@ const CTAButton: React.FC<{ cta: SolutionCTA; onOpenDemo?: () => void }> = ({ ct
     return (
       <CtaLink
         cta={cta}
-        onOpenDemo={onOpenDemo}
+        // onOpenDemo={onOpenDemo}
         className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#F13B0A] hover:bg-[#d8350a] text-white text-base font-semibold tracking-wide shadow-lg hover:shadow-[0_8px_30px_rgb(241,59,10,0.25)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer group"
       >
         <span>{cta.label}</span>

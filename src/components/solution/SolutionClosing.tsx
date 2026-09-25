@@ -29,7 +29,7 @@ export const SolutionCtaBanner: React.FC<Props> = ({ data, onOpenDemo }) => {
             <CtaLink
               key={i}
               cta={cta}
-              onOpenDemo={onOpenDemo}
+              // onOpenDemo={onOpenDemo}
               className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#F13B0A] hover:bg-[#d8350a] text-white text-base font-semibold shadow-lg hover:shadow-[0_8px_30px_rgb(241,59,10,0.35)] transition-all cursor-pointer group"
             >
               <span>{cta.label}</span>
@@ -92,7 +92,7 @@ export const SolutionFaq: React.FC<Props> = ({ data }) => {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="bg-white py-10 sm:py-18">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight text-center mb-4">
           {data.faq.title.split('Frequently')[0]}
           <span className="text-slate-400"> {data.faq.title.includes('Frequently') ? 'Frequently Asked Questions' : ''}</span>

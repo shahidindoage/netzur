@@ -2,12 +2,12 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { featuresRegistry } from '../src/data/features';
-import { solutionsRegistry } from '../src/data/solutions';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
 const SITE_URL = process.env.SITE_URL || 'https://netzur.com';
 const WORDPRESS_API_URL = 'https://netzur.com/wp-json/wp/v2/netzur_services';
+const WORDPRESS_SOLUTIONS_API_URL = 'https://netzur.com/wp-json/wp/v2/netzur_solutions';
 
 interface HeadData {
   title: string;
@@ -107,10 +107,6 @@ async function main(): Promise<void> {
     writeRoute(`/features/${feature.slug}`, feature.meta, template);
   }
 
-  for (const solution of Object.values(solutionsRegistry)) {
-    writeRoute(`/solutions/${solution.slug}`, solution.meta, template);
-  }
-
   try {
     const res = await fetch(`${WORDPRESS_API_URL}?per_page=100&_fields=slug,acf`);
     if (!res.ok) throw new Error(`WordPress API HTTP ${res.status}`);
@@ -126,6 +122,23 @@ async function main(): Promise<void> {
     console.log(`services prerendered: ${count}/${posts.length}`);
   } catch (err) {
     console.error('Prerender services failed (WordPress unreachable).', err);
+  }
+
+  try {
+    const res = await fetch(`${WORDPRESS_SOLUTIONS_API_URL}?per_page=100&_fields=slug,acf`);
+    if (!res.ok) throw new Error(`WordPress Solutions API HTTP ${res.status}`);
+    const posts = (await res.json()) as { slug?: string; acf?: { meta_title?: string; meta_description?: string } }[];
+    let count = 0;
+    for (const post of posts) {
+      const title = post.acf?.meta_title || '';
+      const description = post.acf?.meta_description || '';
+      if (!post.slug || (!title && !description)) continue;
+      writeRoute(`/solutions/${post.slug}`, { title, description }, template);
+      count++;
+    }
+    console.log(`solutions prerendered: ${count}/${posts.length}`);
+  } catch (err) {
+    console.error('Prerender solutions failed (WordPress unreachable).', err);
   }
 
   console.log('Prerender complete. Base URL:', SITE_URL);

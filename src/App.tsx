@@ -8,7 +8,7 @@ import { BookDemoModal } from './components/BookDemoModal';
 import Home from './pages/Home';
 import Home1 from './pages/Home1';
 import Home2 from './pages/Home2';
-import ServicePage from './pages/ServicePage';
+import DynamicSlugPage from './pages/DynamicSlugPage';
 import Services from './pages/Services';
 import FeaturePage from './pages/FeaturePage';
 import SolutionPage from './pages/SolutionPage';
@@ -42,7 +42,7 @@ export default function App() {
           {/* Home Route */}
           <Route path="/" element={<Home onOpenDemo={handleOpenDemo} />} />
           <Route path="/services" element={<Services onOpenDemo={handleOpenDemo} />} />
-          <Route path="/:slug" element={<ServicePage onOpenDemo={handleOpenDemo} />} />
+          <Route path="/:slug" element={<DynamicSlugPage onOpenDemo={handleOpenDemo} />} />
           <Route path="/services/:slug" element={<OldServiceRedirect />} />
           <Route path="/features/:slug" element={<FeaturePage onOpenDemo={handleOpenDemo} />} />
           <Route path="/solutions/:slug" element={<SolutionPage onOpenDemo={handleOpenDemo} />} />

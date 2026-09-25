@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 const SITE_URL = 'https://netzur.com';   // base domain used for canonical / og:url
 const WP_API = 'https://netzur.com/wp-json/wp/v2/netzur_services';
+const WP_SOLUTIONS_API = 'https://netzur.com/wp-json/wp/v2/netzur_solutions';
 const WP_PAGES_API = 'https://netzur.com/wp-json/wp/v2/netzur_pages';
 const CACHE_DIR = __DIR__ . '/cache';
 
@@ -23,7 +24,8 @@ const STATIC_PAGES = ['who-we-are', 'join-the-team', 'pricing', 'integrations', 
  * Resolve which WordPress ACF meta to read for a route.
  * - /                  -> netzur_pages CPT (post slug "home")
  * - /<static page>     -> netzur_pages CPT
- * - /<anything else>   -> netzur_services CPT (service moved to top-level URL)
+ * - /solutions/<slug>  -> netzur_solutions CPT
+ * - /<service slug>    -> netzur_services CPT
  * - anything else      -> null (keeps prerendered head)
  */
 function ig_resolve_meta(string $route): ?array
@@ -34,6 +36,9 @@ function ig_resolve_meta(string $route): ?array
     if ($route === '/') {
         $slug = 'home';
         $api = WP_PAGES_API;
+    } elseif (preg_match('#^/solutions/([a-z0-9\-]+)$#', $route, $m)) {
+        $slug = $m[1];
+        $api = WP_SOLUTIONS_API;
     } elseif (preg_match('#^/([a-z0-9\-]+)$#', $route, $m)) {
         if (in_array($m[1], STATIC_PAGES, true)) {
             $slug = $m[1];
@@ -77,8 +82,8 @@ function ig_parse_yoast_head(string $head): ?array
  * temporarily unreachable (so the site never breaks).
  *
  * Resolution order (per field):
- *   1. Yoast SEO head (title / meta description)
- *   2. ACF `meta_title` / `meta_description`
+ *   1. ACF `meta_title` / `meta_description` (edits reflect instantly)
+ *   2. Yoast SEO head (title / meta description)
  *
  * @return array{title:string, description:string}|null
  */
@@ -99,9 +104,11 @@ function ig_fetch_meta(string $slug, string $api): ?array
             $acfTitle = (string) ($data[0]['acf']['meta_title'] ?? '');
             $acfDesc = (string) ($data[0]['acf']['meta_description'] ?? '');
 
+            // ACF wins so edits to meta_title/meta_description always reflect;
+            // Yoast only fills the gap when the ACF field is empty.
             $meta = [
-                'title' => !empty($yoast['title']) ? $yoast['title'] : $acfTitle,
-                'description' => !empty($yoast['description']) ? $yoast['description'] : $acfDesc,
+                'title' => $acfTitle !== '' ? $acfTitle : ($yoast['title'] ?? ''),
+                'description' => $acfDesc !== '' ? $acfDesc : ($yoast['description'] ?? ''),
             ];
             if ($meta['title'] !== '' || $meta['description'] !== '') {
                 if (!is_dir(CACHE_DIR)) {

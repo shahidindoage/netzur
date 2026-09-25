@@ -16,10 +16,10 @@ interface NetzurPageJson {
 /**
  * Applies the fallback meta immediately (never blank while loading), then
  * fetches meta for this page from WordPress. Resolution order:
- *   1. Yoast SEO head (title / meta description)
- *   2. ACF `meta_title` / `meta_description` (Netzur Pages CPT)
+ *   1. ACF `meta_title` / `meta_description` (Netzur Pages CPT) — edits
+ *      reflect instantly without a rebuild
+ *   2. Yoast SEO head (title / meta description)
  *   3. the fallback values
- * ACF edits in WP admin reflect instantly without a rebuild.
  */
 export function usePageMeta(
   slug: string,
@@ -43,13 +43,13 @@ export function usePageMeta(
         let title = '';
         let description = '';
 
-        const yoast = parseYoastHead(post.yoast_head);
-        if (yoast?.title) title = yoast.title;
-        if (yoast?.description) description = yoast.description;
-
         const acf = post.acf;
-        if (!title && acf?.meta_title) title = acf.meta_title;
-        if (!description && acf?.meta_description) description = acf.meta_description;
+        if (acf?.meta_title) title = acf.meta_title;
+        if (acf?.meta_description) description = acf.meta_description;
+
+        const yoast = parseYoastHead(post.yoast_head);
+        if (!title && yoast?.title) title = yoast.title;
+        if (!description && yoast?.description) description = yoast.description;
 
         if (!title && !description) return;
         applyPageMeta(title || fallbackTitle, description || fallbackDescription);

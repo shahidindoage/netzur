@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /** Minimal CTA shape — satisfied by both ServiceCTA and FeatureCTA. */
 export interface CtaData {
@@ -10,7 +11,13 @@ export interface CtaData {
 /** `href` omitted, empty, or `'demo'` → opens the Book Demo modal. */
 export function isDemoCta(cta: Pick<CtaData, 'href'>): boolean {
   const href = (cta.href ?? '').trim();
-  return href === '' || href === 'demo' || href === '#demo';
+  return (
+    href === '' ||
+    href === 'demo' ||
+    href === '#demo' ||
+    href === '/demo' ||
+    href === '/book-a-demo'
+  );
 }
 
 interface CtaLinkProps {
@@ -28,19 +35,19 @@ interface CtaLinkProps {
 export const CtaLink: React.FC<CtaLinkProps> = ({ cta, onOpenDemo, className, children }) => {
   if (isDemoCta(cta)) {
     return (
-      <button onClick={onOpenDemo} className={className}>
+      <Link to={cta.href ?? '#'} className={className}>
         {children}
-      </button>
+      </Link>
     );
   }
   const external = /^https?:\/\//i.test(cta.href as string);
   return (
-    <a
-      href={cta.href}
+    <Link
+      to={cta.href}
       className={className}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       {children}
-    </a>
+    </Link>
   );
 };
